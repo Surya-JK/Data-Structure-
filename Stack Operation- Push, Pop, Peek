@@ -1,45 +1,45 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define MAX 100
-
-struct Stack {
-    int top;
-    int arr[MAX];
-};
-
-void push(struct Stack* stack, int data) {
-    if (stack->top == MAX - 1) {
-        printf("Stack Overflow\n");
-        return;
-    }
-    stack->arr[++stack->top] = data;
+#include<stdio.h>
+#define size 4
+int top=-1,array[size];
+void push(int value);
+void pop();
+void show();
+int main(){
+  push(10);
+  push(20);
+  push(30);
+  push(40);
+  printf("stack after push:\n");
+  show();
+  pop();
+  pop();
+  printf("stack after pop:\n");
+  show();
 }
-
-int pop(struct Stack* stack) {
-    if (stack->top == -1) {
-        printf("Stack Underflow\n");
-        return -1;
-    }
-    return stack->arr[stack->top--];
+void push(int value){
+  if(top==size-1){
+    printf("stack is full");
+  }
+  else{
+    array[++top]=value;
+    printf("push %d to stack\n",value);
+  }
 }
-
-int peek(struct Stack* stack) {
-    if (stack->top == -1) {
-        printf("Stack is Empty\n");
-        return -1;
-    }
-    return stack->arr[stack->top];
+void pop(){
+  if(top==-1){
+    printf("stack is empty");
+  }
+  else{
+    printf("poped value=%d\n",array[--top]);
+  }
 }
-
-int main() {
-    struct Stack stack;
-    stack.top = -1;
-    push(&stack, 1);
-    push(&stack, 2);
-    push(&stack, 3);
-    printf("Top element: %d\n", peek(&stack));
-    printf("Popped element: %d\n", pop(&stack));
-    printf("Top element after pop: %d\n", peek(&stack));
-    return 0;
+void show(){
+  if(top==-1){
+    printf("stack is empty");
+  }
+  else{
+    for(int i=top;i>=0;i--){
+      printf("%d\n",array[i]);
+    }
+  }
 }

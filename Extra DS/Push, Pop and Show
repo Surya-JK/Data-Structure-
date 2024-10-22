@@ -30,7 +30,7 @@ void pop(){
     printf("stack is empty");
   }
   else{
-    printf("poped value=%d\n",array[--top]);
+    printf("poped value=%d\n",array[top--]);
   }
 }
 void show(){

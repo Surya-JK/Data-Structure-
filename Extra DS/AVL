@@ -12,7 +12,7 @@ int height(struct Node* node) {
     return (node == NULL) ? 0 : node->height;
 }
 struct Node* createNode(int data) {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* node =malloc(sizeof(struct Node));
     node->data = data;
     node->left = node->right = NULL;
     node->height = 1;

@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    int n = 5;  // Set the number of terms
+    int a = 0, b = 1, next, sum = 0;
+    printf("Fibonacci series up to %d terms:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a);
+        sum += a;      
+        next = a + b;  
+        a = b;         
+        b = next;      
+    }
+    printf("\nThe sum of the first %d Fibonacci numbers is: %d\n", n, sum);
+    return 0;
+}
